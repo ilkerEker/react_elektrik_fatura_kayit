@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+//import logo from "./logo.svg";
+import "./App.css";
+
+import { Home } from "./Home";
+import { Department } from "./Department";
+import { Employee } from "./Employee";
+
+import { Tesis } from "./Tesis";
+import { Fatura } from "./Fatura";
+import { Navigation } from "./Navigation";
+
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="container">
+        <h3 className="m3 d-flex justify-content-center sm-2">
+          Elektrik Faturaları Giriş Ekranı
+        </h3>
+        <Navigation />
+        <Switch>
+          <Route path="/" component={Home} exact />
+          <Route path="/department" component={Department} />
+          <Route path="/employee" component={Employee} />
+          <Route path="/tesis" component={Tesis} />
+          <Route path="/fatura" component={Fatura} />
+        </Switch>
+      </div>
+    </BrowserRouter>
   );
 }
 
